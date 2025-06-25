@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "../api/axios";
@@ -7,6 +7,13 @@ import axios from "../api/axios";
 const Login = () => {
   const navigate = useNavigate();
   const loading = false
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
