@@ -13,8 +13,7 @@ const Login = () => {
     try {
       const response = await axios.post("expenses/login/", {username: e.target.username.value, password: e.target.password.value},{ headers: {
           "Content-Type": "application/json"
-        },
-        withCredentials: true});
+        }});
       const userData = {
       username: response.data.username,
       is_staff: response.data.is_staff,
